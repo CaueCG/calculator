@@ -1,3 +1,64 @@
-h1{
-  color: red;
+html, body, header{
+  height: 100%;
+  background: #055052;
+}
+body{
+  margin: 0px;
+}
+
+button{
+  border-style:solid;
+  border-color: black;
+}
+button:hover{
+  background: #A9A9A9;
+  cursor: pointer;
+}
+
+.title{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 40px;
+  background: #003638;
+}
+.global{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #055052;
+}
+
+.containerTeclade{
+  display: flex;
+  flex-direction: row;
+}
+.containerResult{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.containerNumbers button{
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  margin-right: 4px;
+}
+
+.ContainerSign button{
+  width: 40px;
+  height:80px;
+}
+
+.containerResult output{
+  width: 218px;
+  height: 80px;
+  border-style: inset;
+  border-color: black;
+  display: block;
+  margin-bottom: 3px;
+  margin-right: 2px;
+  background: white;
 }
