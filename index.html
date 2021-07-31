@@ -5,43 +5,46 @@
 <meta charset="utf-8">
 <title>Calculator</title>
 <link rel="stylesheet" href="style.css" type="text/css"></link>
-
 </head>
 
 <body>
-  <header>
+
     <div class="title">
       <h1>Calculator</h1>
     </div>
     <div class="global">
       <div class="containerResult">
-        <output name="result">.</output>
+        <output id="result"></output>
       </div>
       <div class="containerTeclade">
         <div class="containerNumbers">
-          <button type="button" name="button1">1</button>
-          <button type="button" name="button2">2</button>
-          <button type="button" name="button3">3</button><br>
-          <button type="button" name="button4">4</button>
-          <button type="button" name="button5">5</button>
-          <button type="button" name="button6">6</button><br>
-          <button type="button" name="button7">7</button>
-          <button type="button" name="button8">8</button>
-          <button type="button" name="button9">9</button><br>
-          <button type="button" name="button0">0</button>
-          <button type="button" name="button.">.</button>
-          <button type="button" name="button=">=</button>
+          <button type="button" onclick="addNumber(1);" id="button1">1</button>
+          <button type="button" onclick="addNumber(2);" id="button2">2</button>
+          <button type="button" onclick="addNumber(3);" id="button3">3</button><br>
+          <button type="button" onclick="addNumber(4);" id="button4">4</button>
+          <button type="button" onclick="addNumber(5);" id="button5">5</button>
+          <button type="button" onclick="addNumber(6);" id="button6">6</button><br>
+          <button type="button" onclick="addNumber(7);" id="button7">7</button>
+          <button type="button" onclick="addNumber(8);" id="button8">8</button>
+          <button type="button" onclick="addNumber(9);" id="button9">9</button><br>
+          <button type="button" onclick="addNumber(0);" id="button0">0</button>
+          <button type="button" onclick="addText('.');" id="button.">.</button>
+          <button type="button" id="button=">=</button>
         </div>
         <div class="ContainerSign">
-          <button type="button" name="button+">+</button>
-          <button type="button" name="button-">-</button><br>
-          <button type="button" name="buttonx">x</button>
-          <button type="button" name="button/">/</button>
+          <button type="button" onclick="addText(' + ')" id="button+">+</button>
+          <button type="button" onclick="addText(' - ')" id="button-">-</button><br>
+          <button type="button" onclick="addText(' x ')" id="buttonx">x</button>
+          <button type="button" onclick="addText(' / ')" id="button/">/</button>
         </div>
       </div>
+      <div class="containerCancel">
+        <button type="button" onclick="delete2()" id="buttonCancel">Cancel</button>
+        <button type="button" onclick="clear2()" id="buttonClear">Clear</button>
+      </div>
     </div>
-  </header>
-
+    <script src="index.js" type="text/javascript">
+    </script>
 </body>
 
 </html>

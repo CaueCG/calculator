@@ -21,6 +21,7 @@ button:hover{
   justify-content: center;
   font-size: 40px;
   background: #003638;
+  box-shadow:
 }
 .global{
   display: flex;
@@ -38,6 +39,18 @@ button:hover{
   margin-top: 30px;
   display: flex;
   flex-direction: row;
+  line-break: anywhere;
+}
+
+.containerResult{
+  display: flex;
+  flex-direction: row;
+}
+
+.containerCancel button{
+  margin-top: 5px;
+  width: 110px;
+  height: 30px;
 }
 
 .containerNumbers button{
