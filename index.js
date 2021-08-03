@@ -13,14 +13,6 @@ function x(){
 buttonResult.addEventListener("click", calculate);
 buttonResult.addEventListener("click", x);
 
-function addPoint(ponto){
-  if (resultJS.innerHTML.indexOf(" ", 0) < 0 ){ 
-    resultJS.innerHTML +=ponto;
-  }
-  else if (resultJS.innerHTML.indexOf( " ", 0 ) >= -) {
-    
-  }
-}
 
 function addNumber(number) {
   resultJS.value += number;
