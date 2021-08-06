@@ -32,12 +32,18 @@ function addSigns(signs){
     if (resultJS.innerHTML.substr(0) == "") {
         return alert("Digite um número!");
     } else if (resultJS.innerHTML.substr(-1) == " "){
+        space = true;
+        console.log(space);
         resultJS.innerHTML = resultJS.innerHTML.substring(0, resultJS.innerHTML.length-3);
         return resultJS.innerHTML += signs;
-    } else if(resultJS.innerHTML.substr(-1) == " "){
+    } else if(resultJS.innerHTML.substr(-1) == "."){
+        space =true;
+        console.log(space);
         resultJS.innerHTML = resultJS.innerHTML.substring(0, resultJS.innerHTML.length-1);
         return resultJS.innerHTML += signs;
     }else{
+        space = true;
+        console.log(space);
         return resultJS.innerHTML += signs;
     }
     
@@ -91,10 +97,10 @@ function calculate(){
         resultJS.innerHTML = resultJS.innerHTML.substring(0, resultJS.innerHTML.length-3);
         return  resultJS.innerHTML = eval(resultJS.innerHTML);
     }else{
-        resultJS.innerHTML = eval(resultJS.innerHTML);
+        resultJS.innerHTML = eval(resultJS.innerHTML).toFixed(2);
     }
+    //Porque colocando .toFixed(2) quebra o for
 }
-
 
 //addEventListener Numbers
 b1.addEventListener("click",function(){addNumber(1)});
