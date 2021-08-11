@@ -1,5 +1,6 @@
 var space = false;
 const resultJS = document.getElementById("result");
+
 //Declaração botão numbers
 const b1= document.getElementById("button1");
 const b2= document.getElementById("button2");
@@ -24,37 +25,31 @@ const bCancel= document.getElementById("buttonCancel");
 
 //funções
 function addNumber(number){
-    
-    console.log(space);
-    return resultJS.innerHTML += number;
+
+     resultJS.innerHTML += number;
 }
 function addSigns(signs){
     if (resultJS.innerHTML.substr(0) == "") {
-        return alert("Digite um número!");
+         alert("Digite um número!");
     } else if (resultJS.innerHTML.substr(-1) == " "){
-        space = true;
-        console.log(space);
         resultJS.innerHTML = resultJS.innerHTML.substring(0, resultJS.innerHTML.length-3);
-        return resultJS.innerHTML += signs;
+         resultJS.innerHTML += signs;
     } else if(resultJS.innerHTML.substr(-1) == "."){
-        space =true;
-        console.log(space);
         resultJS.innerHTML = resultJS.innerHTML.substring(0, resultJS.innerHTML.length-1);
-        return resultJS.innerHTML += signs;
+         resultJS.innerHTML += signs;
     }else{
-        space = true;
-        console.log(space);
-        return resultJS.innerHTML += signs;
+         resultJS.innerHTML += signs;
     }
-    
+    space = true;
   }
 function addPoint(){
     if (resultJS.innerHTML.substr(0) == "") {
-        return alert("Ta chapando caralho")
+        resultJS.innerHTML += "0.";
+        space = false;
     }else{
         for (var cont = resultJS.innerHTML.length; cont >= 0; cont--) {
             if( resultJS.innerHTML.substr(cont - resultJS.innerHTML.length)
-             == " " || resultJS.innerHTML.indexOf(".", 0) < 0){
+             == " " || resultJS.innerHTML.contOf(".", 0) < 0){
                 space = true;
                 cont=resultJS.innerHTML.length;
                 break;
@@ -67,39 +62,64 @@ function addPoint(){
         }
     }
 
-    console.log(space);
-
-    if(space == true && resultJS.innerHTML.substr(-1) == " "){
+    if(space && resultJS.innerHTML.substr(-1) == " "){
         space = false;
-        return resultJS.innerHTML += "0.";
-    } else if(space == true){
+         resultJS.innerHTML += "0.";
+    } else if(space){
         space = false;
-        return resultJS.innerHTML += ".";
+         resultJS.innerHTML += ".";
     }
-    else if(space == false){
-        return resultJS.innerHTML += "";
+    else if(space){
+         resultJS.innerHTML += "";
     }
 }
 function textClear(){
-    return resultJS.innerHTML = "";
+     space = true;
+     resultJS.innerHTML = "";
 }
 function textDelete(){
     if (resultJS.innerHTML.substr(-1) ==" ") {
-        return resultJS.innerHTML = resultJS.innerHTML.substring(0, resultJS.innerHTML.length-3);
-    } else{
-        return resultJS.innerHTML = resultJS.innerHTML.substring(0, resultJS.innerHTML.length-1);
+        space = false;
+        resultJS.innerHTML = resultJS.innerHTML.substring(0, resultJS.innerHTML.length-3);
+    } else if(resultJS.innerHTML.substr(-1) =="."){
+        space = true;
+    }
+        else{
+         resultJS.innerHTML = resultJS.innerHTML.substring(0, resultJS.innerHTML.length-1);
     }
 }
 function calculate(){
     if(resultJS.innerHTML.substr(0) == ""){
-        return alert("Nada para calcular");
+         alert("Nada para calcular");
     } else if(resultJS.innerHTML.substr(-1) == " "){
         resultJS.innerHTML = resultJS.innerHTML.substring(0, resultJS.innerHTML.length-3);
-        return  resultJS.innerHTML = eval(resultJS.innerHTML);
+          resultJS.innerHTML = eval(resultJS.innerHTML);
     }else{
-        resultJS.innerHTML = eval(resultJS.innerHTML).toFixed(2);
+        resultJS.innerHTML = eval(resultJS.innerHTML);
     }
     //Porque colocando .toFixed(2) quebra o for
+}
+
+
+function calculate2 (){
+    let signsResult = [];
+    let re = /\+|\-|\*|\//;
+    //Dificuldade sintaxe expressão regular de vários caracteres em um RegExp
+    let ContentResultJS = resultJS.innerHTML.split(re);
+ 
+     for (let cont = 0; cont < resultJS.innerHTML.length; cont++) {
+        if(resultJS.innerHTML.substr(cont) == "+")
+        signsResult.push("+");
+        else if(resultJS.innerHTML.substr(cont) == "-")
+        signsResult.push("-");
+        else if(resultJS.innerHTML.substr(cont) == "-")
+        signsResult.push("*");
+        else if(resultJS.innerHTML.substr(cont) == "/")
+        signsResult.push("/");
+     }
+   
+    console.log(ContentResultJS);
+    console.log(signsResult);
 }
 
 //addEventListener Numbers
@@ -122,4 +142,4 @@ bPoint.addEventListener("click",addPoint);
 //addEventListener clear, delete, calculate
 bCancel.addEventListener("click", textDelete);
 bClear.addEventListener("click", textClear);
-bEqual.addEventListener("click", calculate);
+bEqual.addEventListener("click", calculate2);
