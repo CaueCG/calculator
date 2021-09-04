@@ -101,12 +101,12 @@ function calculate(){
 }
 
 
-function calculate2 (){
+/*function calculate2 (){
     let signsResult = [];
     let re = /\+|\-|\*|\//;
     //Dificuldade sintaxe expressão regular de vários caracteres em um RegExp
     let ContentResultJS = resultJS.innerHTML.split(re);
- 
+
      for (let cont = 0; cont < resultJS.innerHTML.length; cont++) {
         if(resultJS.innerHTML.substr(cont) == "+")
         signsResult.push("+");
@@ -117,10 +117,10 @@ function calculate2 (){
         else if(resultJS.innerHTML.substr(cont) == "/")
         signsResult.push("/");
      }
-   
+
     console.log(ContentResultJS);
     console.log(signsResult);
-}
+}*/
 
 //addEventListener Numbers
 b1.addEventListener("click",function(){addNumber(1)});
