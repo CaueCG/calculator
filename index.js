@@ -2,8 +2,8 @@ let resultJS = document.getElementById("result");
 const buttonResult = document.getElementById("button=");
 const buttonMais = document.getElementById("button+");
 
-function x(){
-  if (resultJS.innerHTML.indexOf('+', 0) >= 0) {
+function x() {
+  if (resultJS.innerHTML.indexOf("+", 0) >= 0) {
     console.log("Boa");
   } else {
     console.log("ops");
@@ -13,65 +13,57 @@ function x(){
 buttonResult.addEventListener("click", calculate);
 buttonResult.addEventListener("click", x);
 
-
 function addNumber(number) {
   resultJS.value += number;
 }
 
-
-function addText(text){
+function addText(text) {
   let inputResultJS = resultJS.innerHTML;
 
-if(inputResultJS.substr(0) == ""){
- alert("Digite um número!");
-}
- else if(inputResultJS.substr(-1) == "."){
-  resultJS.innerHTML = inputResultJS.substring(0, inputResultJS.length-1);
-  resultJS.innerHTML += text;
-  
-} else if(inputResultJS.substr(-1) == " ") {
-  resultJS.innerHTML = inputResultJS.substring(0, inputResultJS.length-3);
-  resultJS.innerHTML += text;
-}
-else{
-  resultJS.innerHTML += text;
+  if (inputResultJS.substr(0) == "") {
+    alert("Digite um número!");
+  } else if (inputResultJS.substr(-1) == ".") {
+    resultJS.innerHTML = inputResultJS.substring(0, inputResultJS.length - 1);
+    resultJS.innerHTML += text;
+  } else if (inputResultJS.substr(-1) == " ") {
+    resultJS.innerHTML = inputResultJS.substring(0, inputResultJS.length - 3);
+    resultJS.innerHTML += text;
+  } else {
+    resultJS.innerHTML += text;
   }
 }
 
 function delete2() {
-  let input = document.getElementById('result');
+  let input = document.getElementById("result");
   let inputText = input.value;
 
-  if(inputText.substr(-1) == " "){
-  input.value = inputText.substring(0,inputText.length-3);
-} else{
-  input.value = inputText.substring(0,inputText.length-1);
+  if (inputText.substr(-1) == " ") {
+    input.value = inputText.substring(0, inputText.length - 3);
+  } else {
+    input.value = inputText.substring(0, inputText.length - 1);
   }
 }
 
-
-function clear2(){
-  let input = document.getElementById('result');
+function clear2() {
+  let input = document.getElementById("result");
   input.value = "";
 }
 
-function calculate(){
+function calculate() {
   let resultJS = document.getElementById("result").innerHTML;
   let resultJSDelete = document.getElementById("result");
   let inputResultJS = resultJSDelete.value;
 
-  if(inputResultJS.substr(-1) == " "){
-    resultJSDelete.value = inputResultJS.substring(0, inputResultJS.length-3);
-    alert("Digite outro número!") }
-    /*Porque dá erro colocando document.getElementById("result").innerHTML 
+  if (inputResultJS.substr(-1) == " ") {
+    resultJSDelete.value = inputResultJS.substring(0, inputResultJS.length - 3);
+    alert("Digite outro número!");
+  } else if (resultJS) {
+  /*Porque dá erro colocando document.getElementById("result").innerHTML 
     = eval(resultJS); aqui em cima?*/
-  else if(resultJS){
     document.getElementById("result").innerHTML = eval(resultJS);
-  }
-  else{
+  } else {
     alert("Nada para calcular");
   }
-  
 }
 
 /*function addNumber2(){
