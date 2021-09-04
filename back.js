@@ -142,4 +142,4 @@ bPoint.addEventListener("click",addPoint);
 //addEventListener clear, delete, calculate
 bCancel.addEventListener("click", textDelete);
 bClear.addEventListener("click", textClear);
-bEqual.addEventListener("click", calculate2);
+bEqual.addEventListener("click", calculate);
